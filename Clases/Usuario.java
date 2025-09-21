@@ -1,13 +1,23 @@
+package Clases;
+
 public class Usuario {
     
-    // -- Atributos-- // 
+    // Atributos
 
     private int id;
-    private String nombre;
-    private String correoElectronico;
-    private String contraseña;
+    protected String nombre;
+    protected String correoElectronico;
+    protected String contraseña;
 
-    // -- Constructor-- //
+    // Constructor
+     /**
+     * Para inicializar un nuevo objeto Usuario.
+     * @param id Identificador único del producto.
+     * @param nombre EL nombre del producto.
+     * @param correoElectronico La dirección de email del usuario.
+     * @param contraseña La contraseña para acceder al sistema.
+     */
+    
     
     public Usuario(int id, String nombre, String correoElectronico, String contraseña) {
         this.id = id;
@@ -16,7 +26,8 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    // -- Métodos GETTERS y SETTERS (Propiedades) -- //
+    // Métodos GETTERS y SETTERS (Propiedades)
+    // Permiten gestionar los atributos de la clase.
 
     public int getId() {
         return id;
