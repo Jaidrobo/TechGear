@@ -1,5 +1,4 @@
 package Clases;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +7,11 @@ import java.util.List;
  * En esta se instancian los objetos y se demuestra la interacción entre ellos,
  * aplicando polimorfismo, herencia, sobrecarga y sobrescritura.
  */
-
 public class Store {
     public static void main(String[] args) {
 
         // Configuración inicial: Creación de Inventario y Usuarios.
         System.out.println("Sistema de Store Iniciado 🚀");
-
 
         // Creación del Inventario con diferente tipos de productos
         ProductoFisico discoSsd = new ProductoFisico(201, "Disco SSD Externo", "Portable E30 2TB", 45.50, 50, 0.42, "9x8x4 cm");
@@ -35,7 +32,6 @@ public class Store {
         // El método 'mostrarDetalle' específico de cada subclase (sobrescritura).
         mostrarInventarioCompleto(inventario);
 
-        
         // Simulación de compra de un cliente
         System.out.println("\n --- Inicio del Proceo de Compra de para " + cliente.getNombre() + " ---");
         CarritoDeCompras carritoDeLyzdaiana = new CarritoDeCompras();
@@ -60,9 +56,7 @@ public class Store {
 
         System.out.println("\n--- Estado del Inventario Tras las Acciones del Administrador ---");
         mostrarInventarioCompleto(inventario);
-
     }
-
     /**
      * Método polimórfico procesa una lista de productos.
      * @param inventario Una lista que puede contener cualquier tipo de Producto.

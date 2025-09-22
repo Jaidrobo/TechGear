@@ -4,11 +4,9 @@ import java.util.ArrayList; // esta clase se utliza para importar listas dinamic
 import java.util.List;  // corresponde a la interfaz List.
 
 // Representa el carrito de compras de un usuario.
-
 public class CarritoDeCompras {
 
     // Atributos.
-
     private List<Producto> productosSeleccionados;
     private double total;
 
@@ -95,10 +93,10 @@ public class CarritoDeCompras {
 
     }
 
-    // Nuevas versiones del método.
+    // Versiones del método.
     // El método agregarProducto(Producto producto) se mantiene.
     /**
-    * SOBRECARGA: Añade una cantidad específica de un mismo producto.
+    * SOBRECARGA 1: Añade una cantidad específica de un mismo producto.
     * @param producto El producto a añadir.
     * @param cantidad El número de unidades a añadir.
     */
@@ -112,7 +110,7 @@ public class CarritoDeCompras {
     }
 
     /**
-    * SOBRECARGA: Busca un producto por su ID en un inventario y lo añade.
+    * SOBRECARGA 2: Busca un producto por su ID en un inventario y lo añade.
     * @param productoId El ID del producto a buscar.
     * @param inventario Generalmente, una lista de todos los productos disponibles en la tienda.
     */

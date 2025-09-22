@@ -3,11 +3,9 @@ package Clases;
  * Representa un producto físico que tiene `peso` y `dimensiones`.
  * Hereda de la clase Producto.
  */
-
 public class ProductoFisico extends Producto {
 
     // Atributos Específicos
-
     private double pesoKg;
     private String dimensiones; // "15x10x5 cm"
 

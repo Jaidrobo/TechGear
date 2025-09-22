@@ -1,6 +1,4 @@
-
 package Clases;
-
 /**
  * Representa a un administrador del sistema, un tipo de Usuario con permisos especiales.
  */
@@ -8,7 +6,7 @@ package Clases;
 public class Administrador extends Usuario {
     
     // Atributo específico 
-    private String nivelDeAcceso; // Acceso "Total, Inventario y Marketing"
+    private String nivelDeAcceso; // Acceso "Total, Inventario y Precio"
 
     // Constructor 
     public Administrador(int id, String nombre, String correoElectronico, String contraseña, String nivelDeAcceso) {
@@ -17,12 +15,11 @@ public class Administrador extends Usuario {
     }
 
     // Métodos especificos de gestión
-      /**
+    /**
      * Permite al administrador cambiar el precio de cualquier producto.
      * @param producto El producto a modificar.
      * @param nuevoPrecio El nuevo precio a establecer.
      */
-    
      public void cambiarPrecioProducto(Producto producto, double nuevoPrecio) {
         System.out.println("🔑 Acción de Admin: Cambiando precio de '" + producto.getNombre() + "'.");
         System.out.println("Precio anterior: $" + producto.getPrecio());
@@ -43,7 +40,6 @@ public class Administrador extends Usuario {
     }
 
     // Getter y Setter Específico
-
     public String getNivelDeAcceso() {
         return nivelDeAcceso;
     }

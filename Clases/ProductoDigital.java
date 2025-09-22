@@ -3,11 +3,9 @@ package Clases;
  * Representa un producto digital que se puede descargar.
  * Hereda de la clase Producto.
  */
-
 public class ProductoDigital extends Producto {
     
     // Atributos Especificos.
-
     private String formatoArchivo;
     private double tamañoMB;
 
@@ -16,7 +14,6 @@ public class ProductoDigital extends Producto {
     * Inicializar un ProductoDigital.
     * Para productos digitales, el stock se puede considerar infinito.
     */
-    
     public ProductoDigital(int id, String nombre, String descripcion, double precio, int stock, String formatoArchivo,
             double tamañoMB) {
         // Llamamos al constructor padre para un producto digital, el stock puede ser un valor alto para simular

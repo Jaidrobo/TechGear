@@ -92,5 +92,4 @@ public class Producto{
         System.out.printf("Precio: $%.2f%n", getPrecio()); // Usamos printf para formatear el precio
         System.out.println("Stock: " + getStock());
     }
-
 }   
