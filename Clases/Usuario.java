@@ -50,7 +50,12 @@ public class Usuario {
     }
 
     public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+        // Validación: Verificamos que el email contenga @ y almenos un punto después.
+        if (correoElectronico != null && correoElectronico.contains("@") && correoElectronico.contains(".")) {
+           this.correoElectronico = correoElectronico;
+        } else {
+           System.out.println("Error: El formato del correo electronico `" + correoElectronico + "`no es válido. ");
+        } 
     }
 
     public String getContraseña() {
@@ -60,6 +65,4 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-
-    
 }

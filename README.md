@@ -30,3 +30,5 @@ Permite una gestión organizada, reutilización de código y una extensión flex
 ## Aplicación de Polimorfismo y Sobrecarga
 La implementación de polimorfismo y sobrecarga permite manejar diversas operaciones sobre productos y pedidos en la plataforma "TechGear”.
 
+## Aplicación de Encapsulamiento y Abstracción 
+Permite ocultar la complejidad interna de un objeto (encapsulamiento) y presentar solo las características esenciales de manera simplificada (abstracción).

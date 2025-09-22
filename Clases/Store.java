@@ -70,4 +70,25 @@ public class Store {
             System.out.println("--------------------------------");
         }
     }
+    /**
+     * Método para probar los conceptos de Abstracción y Encapsulamiento con Validación.
+     */
+    public static void demostrarAbstraccionYValidacion(Cliente cliente, Producto producto) {
+        System.out.println("--- Generación de Abstración ---");
+        // La siguiente línea daría un error de compilación, lo cual es correcto,
+        // porque 'Producto' es una clase abstracta y no puede ser instanciada.
+        // Producto productoGenerico = new Producto(0, "Genérico", "", 0, 0);
+        System.out.println(" Verificando: No se pueden crear instancias de 'Producto' directamente.");
+
+        System.out.println("\n--- Demostrando Encapsulamiento con Validación ---");
+        // Intentar relacionar un precio negativo a un producto
+        System.out.println("Precio original del producto: $" + producto.getPrecio());
+        producto.setPrecio(-5.00); // Esto debería fallar y mostrar un error gracias a la validación en el setter.
+        System.out.println("Precio del producto después del intento de cambio inválido: $" + producto.getPrecio());
+        
+        // Intentar relacionar un email inválido a un cliente
+        System.out.println("\nEmail original del cliente: " + cliente.getCorreoElectronico());
+        cliente.setCorreoElectronico("usuario-sin-arroba"); // Esto también debería fallar.
+        System.out.println("Email del cliente después del intento de cambio inválido: " + cliente.getCorreoElectronico());
+    }
 }
