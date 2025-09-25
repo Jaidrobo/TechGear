@@ -10,15 +10,15 @@ En ese sentido, la propuesta del presente proyecto se centra en el diseño arqui
 
 El proyecto contempla un conjunto de tecnologías y herramientas que garantizan su funcionalidad, escalabilidad y seguridad.
 
-**Backed:** Java, Spring Boot
-**Fronted:** 
+**BackEnd:** Java, Spring Boot
+**FrontEnd:** HTML5, CSS3, Tailwind CSS, 
 
+## _=== BackEnd ===_
 
-## Clases 
+## Clases
 La implementación de las clases **“Producto, Usuario y CarritoDeCompra”** es clave para el correcto funcionamiento de la e-commerce, ya que encapsulan la información de los artículos, los compradores y la gestión de los productos seleccionados respectivamente, formando la base de la lógica de **"TechGear”**, mejorando la experiencia del cliente.
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 
 
 ### _Extensión de Funcionalidades mediante Herencia_
@@ -30,5 +30,34 @@ Permite una gestión organizada, reutilización de código y una extensión flex
 ## Aplicación de Polimorfismo y Sobrecarga
 La implementación de polimorfismo y sobrecarga permite manejar diversas operaciones sobre productos y pedidos en la plataforma "TechGear”.
 
-## Aplicación de Encapsulamiento y Abstracción 
+## Aplicación de Encapsulamiento y Abstracción
 Permite ocultar la complejidad interna de un objeto (encapsulamiento) y presentar solo las características esenciales de manera simplificada (abstracción).
+
+## Implementación de Interfaces y Clases Abstractas
+Permiten definir qué deben hacer las clases (interfaces) o qué pueden heredar y completar las (clases abstractas), haciendo que el código sea más flexible y manejable.
+
+
+## _=== FrontEnd ===_
+
+## Maqueta de Plataforma eCommerce - TechGear
+Contiene la maqueta inicial de la página web para la plataforma de eCommerce **TechGear** donde el uso de tecnologías para web modernas como HTML5, CSS3 y Tailwind CSS permite crear una interfaz de usuario atractiva, interactiva y responsiva.
+
+### Estructura de Archivos
+/
+|-- index.html      # Archivo principal de la página
+|-- css/
+|   |-- styles.css  # Estilos personalizados
+|-- js/
+|   |-- script.js   # Lógica de JavaScript
+
+
+## Capturas de Pantalla
+A continuación, se muestran vistas previas de la página en diferentes dispositivos.
+
+### Vista de Escritorio (Desktop)
+_Captura de pantalla de la vista de escritorio._
+![Vista de Escritorio](ruta/a/tu/imagen_desktop.png)
+
+### Vista Móvil (Mobile)
+_Captura de pantalla de la vista móvil._
+![Vista Móvil](ruta/a/tu/imagen_mobile.png)
