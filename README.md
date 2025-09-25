@@ -11,9 +11,10 @@ En ese sentido, la propuesta del presente proyecto se centra en el diseño arqui
 El proyecto contempla un conjunto de tecnologías y herramientas que garantizan su funcionalidad, escalabilidad y seguridad.
 
 **BackEnd:** Java, Spring Boot
+
 **FrontEnd:** HTML5, CSS3, Tailwind CSS, 
 
-## _=== BackEnd ===_
+### _=== BackEnd ===_
 
 ## Clases
 La implementación de las clases **“Producto, Usuario y CarritoDeCompra”** es clave para el correcto funcionamiento de la e-commerce, ya que encapsulan la información de los artículos, los compradores y la gestión de los productos seleccionados respectivamente, formando la base de la lógica de **"TechGear”**, mejorando la experiencia del cliente.
@@ -37,7 +38,7 @@ Permite ocultar la complejidad interna de un objeto (encapsulamiento) y presenta
 Permiten definir qué deben hacer las clases (interfaces) o qué pueden heredar y completar las (clases abstractas), haciendo que el código sea más flexible y manejable.
 
 
-## _=== FrontEnd ===_
+### _=== FrontEnd ===_
 
 ## Maqueta de Plataforma eCommerce - TechGear
 Contiene la maqueta inicial de la página web para la plataforma de eCommerce **TechGear** donde el uso de tecnologías para web modernas como HTML5, CSS3 y Tailwind CSS permite crear una interfaz de usuario atractiva, interactiva y responsiva.
