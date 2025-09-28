@@ -1,4 +1,8 @@
-package Clases;
+package usuario;
+
+import producto.Producto;
+import producto.ProductoFisico;
+
 /**
  * Representa a un administrador del sistema, un tipo de Usuario con permisos especiales.
  */

@@ -1,6 +1,8 @@
-package Clases;
+package usuario;
 import java.util.ArrayList; // esta clase se utliza para importar listas dinamicas
 import java.util.List;  // corresponde a la interfaz List 
+
+import negocio.CarritoDeCompras;
 
 /**
  * Representa a un cliente del ecommerce, que es un tipo de Usuario.

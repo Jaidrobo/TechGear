@@ -1,4 +1,4 @@
-package Clases;
+package pago;
 
 /**
  * Interfaz que define el contrato para cualquier método de pago.
@@ -7,7 +7,7 @@ package Clases;
 public interface ProcesoPago {
     // Los métodos en una interfaz son públicos y abstractos por defecto.
     void iniciarPago(double monto);
-    boolean verificarPago();
+    boolean verificarPago() throws PagoFallidoException;
     void confirmarPago();
 }
 

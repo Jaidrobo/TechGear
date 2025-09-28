@@ -1,4 +1,7 @@
-package Clases;
+package inventario;
+
+import producto.Producto;
+import producto.ProductoDigital;
 
 public class GestorInventarioDigital extends GestorInventario {
 

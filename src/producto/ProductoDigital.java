@@ -1,4 +1,5 @@
-package Clases;
+package producto;
+
 /**
  * Representa un producto digital que se puede descargar.
  * Hereda de la clase Producto.
@@ -45,7 +46,13 @@ public class ProductoDigital extends Producto {
 
     @Override // Anotación que indica al compilador que estamos sobrescribiendo un método
     public void mostrarDetalle() {
-        super.mostrarDetalle(); // Reutilizamos el código del método padre
+        System.out.println("\n--- Detalle del Producto Digital ---"); // Encabezado específico
+        System.out.println("ID: " + getId()); // Usa los getters del padre
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Descripción: " + getDescripcion());
+        System.out.printf("Precio: $%.2f%n", getPrecio());
+        System.out.println("Stock: Disponible (Ilimitado)"); // O getStock(), pero el valor es MAX_VALUE
+
         System.out.println("Tipo: Producto Digital");
         System.out.println("Formato: " + getFormatoArchivo());
         System.out.println("Tamaño: " + getTamañoMB() + " MB");

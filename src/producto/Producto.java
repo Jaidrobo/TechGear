@@ -1,4 +1,5 @@
-package Clases;
+package producto;
+
 // Representa un producto en el inventario de la ecommerce
 // Añadimos la palabra clave "abstract" a la declaración de la clase
 public abstract class Producto{

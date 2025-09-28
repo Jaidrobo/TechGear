@@ -1,4 +1,5 @@
-package Clases;
+package producto;
+
 /**
  * Representa un producto físico que tiene `peso` y `dimensiones`.
  * Hereda de la clase Producto.
@@ -42,7 +43,13 @@ public class ProductoFisico extends Producto {
     
     @Override // Anotación que indica al compilador que estamos sobrescribiendo un método
     public void mostrarDetalle() {
-         super.mostrarDetalle(); // Llama al método original de la clase padre (Producto)
+        System.out.println("\n--- Detalle del Producto Físico ---"); // Encabezado específico
+        System.out.println("ID: " + getId()); // Usa los getters del padre
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Descripción: " + getDescripcion());
+        System.out.printf("Precio: $%.2f%n", getPrecio());
+        System.out.println("Stock: " + getStock() + " unidades"); // Stock real
+
          System.out.println("Tipo: Producto Físico");
          System.out.println("Peso: " + getPesoKg() + " kg");
          System.out.println("Dimensiones: " + getDimensiones());

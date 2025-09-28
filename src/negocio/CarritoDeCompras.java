@@ -1,7 +1,10 @@
-package Clases;
+package negocio;
 
 import java.util.ArrayList; // esta clase se utliza para importar listas dinamicas.
 import java.util.List;  // corresponde a la interfaz List.
+
+import inventario.InventarioInsuficienteException;
+import producto.Producto;
 
 // Representa el carrito de compras de un usuario.
 public class CarritoDeCompras {
@@ -11,8 +14,6 @@ public class CarritoDeCompras {
     private double total;
 
     // Constructor.
-    // Para inicializar el carrito de compras vacío.
-
     public CarritoDeCompras() {
         this.productosSeleccionados = new ArrayList<>(); // Inicializa la lista como un ArrayList vacío.
         this.total = 0.0; // El total inicial es cero.
@@ -24,14 +25,13 @@ public class CarritoDeCompras {
     * @param producto EL objeto producto que se va añadir.
     */
 
-    public void agregarProducto(Producto producto) {
+    public void agregarProducto(Producto producto) throws InventarioInsuficienteException {
         if (producto != null && producto.getStock()> 0) {
             this.productosSeleccionados.add(producto);
-            producto.setStock(producto.getStock() - 1);
             System.out.println("Ok` " + producto.getNombre() + " `ha sido añadido al carrito.`");
             calcularTotal();
         } else { 
-            System.out.println("No se puede añadir el producto. Stock no disponible o producto nulo.");
+            throw new InventarioInsuficienteException ("No hay Stock disponible para el producto: " + producto.getNombre());
         }
     }
 
@@ -42,7 +42,6 @@ public class CarritoDeCompras {
     public void removerProducto(Producto producto) {
         if (producto != null && this.productosSeleccionados.contains(producto)) {
             this.productosSeleccionados.remove(producto);
-            producto.setStock(producto.getStock() + 1);
             System.out.println("Delete`" + producto.getNombre() + "`ha sido removido del carrito.");
             calcularTotal();
         } else {
@@ -61,8 +60,13 @@ public class CarritoDeCompras {
     }
 
     // Métodos Getters.
-    // No se crea el setters para 'productos' o 'total' para que solo se puedan modificar
-    // a través de los métodos 'agregar' y 'remover'.
+     /**
+     * Devuelve la lista de productos seleccionados.
+     * @return La lista interna de productos seleccionados.
+     */
+    public List<Producto> getProductosSeleccionados() {
+        return productosSeleccionados;
+    }
 
     /**
      * Devuelve el total actual del carrito.
@@ -101,7 +105,7 @@ public class CarritoDeCompras {
     * @param cantidad El número de unidades a añadir.
     */
 
-    public void agregarProducto(Producto producto, int cantidad) {
+    public void agregarProducto(Producto producto, int cantidad) throws InventarioInsuficienteException {
         System.out.println("Intentando agregar " + cantidad + "unidades de `" + producto.getNombre() + "`...`");
         for (int i = 0; i < cantidad; i++){
             // Se reutiliza el método original para la lógica de añadir una cantidad
@@ -115,7 +119,7 @@ public class CarritoDeCompras {
     * @param inventario Generalmente, una lista de todos los productos disponibles en la tienda.
     */
 
-    public void agregarProducto(int productoId, List<Producto> inventario) {
+    public void agregarProducto(int productoId, List<Producto> inventario) throws InventarioInsuficienteException {
         Producto productoEncontrado = null;
         for (Producto p : inventario) {
             if (p.getId() == productoId) {

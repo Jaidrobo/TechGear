@@ -1,4 +1,4 @@
-package Clases;
+package usuario;
 
 public class Usuario {
     

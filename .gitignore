@@ -1,0 +1,9 @@
+# Excluir carpetas con binarios, librerías y configuraciones
+lib/
+Images/
+.vscode/
+.classpath
+.project
+bin/
+.DS_Store
+

@@ -1,4 +1,4 @@
-package Clases;
+package pago;
 
 public class PagoPaypal implements ProcesoPago {
     private String emailUsuario;

@@ -1,7 +1,9 @@
-package Clases;
+package inventario;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import producto.Producto;
 
 public abstract class GestorInventario {
     // `protected` para que las clases hijas puedan acceder directamente a la lista.
