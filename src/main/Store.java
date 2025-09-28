@@ -1,124 +1,101 @@
 package main;
+import java.util.ArrayList;
+import java.util.List;
 
-import producto.Producto;
-import usuario.Cliente;
 import negocio.CarritoDeCompras;
-import inventario.GestorInventario;
-import inventario.GestorInventarioFisico;
-import inventario.InventarioInsuficienteException;
-import pago.PagoFallidoException;
-import pago.PagoTarjeta;
-import pago.ProcesoPago;
-import factory.FabricaEntidades;
-import observer.ActualizadorInventario;
-import observer.EstadoPedido;
-import observer.NotificadorEmail;
-import observer.Observador;
-import singleton.ConfiguracionSistema;
+import producto.Producto;
+import producto.ProductoDigital;
+import producto.ProductoFisico;
+import usuario.Administrador;
+import usuario.Cliente;
 
-
- // --- Clase principal que simula el funcionamiento de la E-commerce ---
- /** En esta se instancian se demuestra la interacción de todas las clases y la aplicación de
- * principios de POO y patrones de diseño (Singleton, Factory, Observer), incluyendo un manejo de excepciones robusto.
+/**
+ * Clase principal que simula el funcionamiento de la e-commerce.
+ * En esta se instancian los objetos y se demuestra la interacción entre ellos,
+ * aplicando polimorfismo, herencia, sobrecarga y sobrescritura.
  */
 public class Store {
     public static void main(String[] args) {
-        System.out.println("=======================================");
-        System.out.println("Iniciado Simulación de la E-commerce 🚀");
-        System.out.println("=======================================");
 
-        // 1.PATRÓN SINGLETON: Cargar configuración del sistema ---
-        System.out.println("--- Obteniendo configuración del sistema (Singleton)---");
-        ConfiguracionSistema config = ConfiguracionSistema.getInstance();
-        config.mostrarConfiguracion();
-        System.out.println("\n Singleton verificado.\n");
+        // Configuración inicial: Creación de Inventario y Usuarios.
+        System.out.println("Sistema de Store Iniciado 🚀");
 
-        // 2.PATRÓN FACTORY: Crear entidades del sistema ---
-        System.out.println("--- Creando entidades con una Fábrica (Factory)---");
-        FabricaEntidades fabrica = new FabricaEntidades();
+        // Creación del Inventario con diferente tipos de productos
+        ProductoFisico discoSsd = new ProductoFisico(201, "Disco SSD Externo", "Portable E30 2TB", 45.50, 50, 0.42, "9x8x4 cm");
+        ProductoDigital ebook = new ProductoDigital(301, "Guía de Programación Java", "Ebook completo para principiantes", 9.99, 0, "PDF", 15.5);
+        ProductoFisico teclado = new ProductoFisico(202, "Teclado Mecanico", "RGB con switches azules", 75, 30, 0.8, "45x15x4 cm");
 
-        Cliente cliente = (Cliente) fabrica.crearUsuario("CLIENTE", 1001, "Lyzdaiana", "lyz@email.com", "pass123", "Calle Galdar 11");
-        Producto laptop = fabrica.crearProducto("FISICO", 201, "Laptop Pro X", "16GB RAM, 512GB SSD", 1250.00, 5, 1.8, "35x25x2 cm");
-        Producto antivirus = fabrica.crearProducto("DIGITAL", 301, "Software Antivirus Pro", "Licencia de 1 año", 49.99, 100, "EXE", 250.0);
-        Producto monitorSinStock = fabrica.crearProducto("FISICO", 202, "Monitor UltraWide 29\"", "Panel IPS, 75Hz", 300.50, 0, 4.5, "70x40x10 cm");
+        List<Producto> inventario = new ArrayList<>();
+        inventario.add(discoSsd);
+        inventario.add(ebook);
+        inventario.add(teclado);
 
-        System.out.println("Entidades creadas. \n");
+        // Creación de usuarios
+        Cliente cliente = new Cliente(1001, "Lyzdaiana", "lyz@hotmail.com", "pass123", "Calle Galdar 11");
+        Administrador administrador = new Administrador(1, "Jose", "jidrobo@hotmail.com", "Admi567", "Total");
+       
+        // POLIMORFISMO Y SOBRESCRITURA 
+        // El método mostrarInventarioCompleto trata a todos como 'Producto' (polimorfismo),
+        // El método 'mostrarDetalle' específico de cada subclase (sobrescritura).
+        mostrarInventarioCompleto(inventario);
 
-        // 3.GESTIÓN DE INVENTARIO ---
-        System.out.println("--- Cargando productos en el inventario ---");
-        GestorInventario inventario = new GestorInventarioFisico();
-        inventario.añadirProducto(laptop);
-        inventario.añadirProducto(monitorSinStock);
-        inventario.listarProducto();
-        System.out.println("\n Inventario inicializado.\n");
-
-        // 4.SIMULACIÓN DE COMPRA CON MANEJO DE EXCEPCIONES ---
-        System.out.println(" El cliente '" + cliente.getNombre() + "' inicia una compra. ");
-        CarritoDeCompras carrito = new CarritoDeCompras();
+        // Simulación de compra de un cliente
+        System.out.println("\n --- Inicio del Proceo de Compra de para " + cliente.getNombre() + " ---");
+        CarritoDeCompras carritoDeLyzdaiana = new CarritoDeCompras();
         
-        try {
-            System.out.println("\n Intentando agregar Laptop (con stock)...");
-            carrito.agregarProducto(laptop);
-            System.out.println("Intentando agregar Antivirus (con stock)...");
-            carrito.agregarProducto(antivirus);
-            System.out.println("Intentando agregar Monitor (sin stock)...");
-            carrito.agregarProducto(monitorSinStock); // Esto lanzará la excepción
-        } catch (InventarioInsuficienteException e) {
-            System.out.println(" Atención CLIENTE: " + e.getMessage());
-            System.out.println("Continuamos con los productos que sí están disponibles.");
-        }
-        
-        System.out.println("\n--- Contenido Final del Carrito ---");
-        carrito.mostrarCarrito();
-        System.out.println("\n Cliente ha llenado su carrito.\n");
+        // Demostración de Sobrecarga de Métodos 
+        carritoDeLyzdaiana.agregarProducto(discoSsd); // Añadir por objeto (la original)
+        carritoDeLyzdaiana.agregarProducto(301, inventario); // Añadir por ID, buscando en el inventario
+        carritoDeLyzdaiana.agregarProducto(teclado, 2); // Añadir por objeto y cantidad 
 
-        
-        // 5. PROCESO DE PAGO Y PATRÓN OBSERVER ---
-        System.out.println("--- El cliente procede al pago (Observer y Excepciones) ---");
-        double totalAPagar = carrito.getTotal();
-        ProcesoPago metodoDePago = new PagoTarjeta(); // El cliente elige pagar con tarjeta
+        // Muestra el resultado final del carrito
+        System.out.println("\n Resumen del carrito antes de finalizar la compra: ");
+        carritoDeLyzdaiana.mostrarCarrito();
 
-        // Se crea el Sujeto (pedido) y los Observadores
-        EstadoPedido pedido = new EstadoPedido(90210);
-        Observador notificadorEmail = new NotificadorEmail();
-        Observador actualizadorStock = new ActualizadorInventario();
-        
-        // Se suscribe los observadores al pedido
-        pedido.registrarObservador(notificadorEmail);
-        pedido.registrarObservador(actualizadorStock);
+        // El cliente "finaliza" la compra y se añade a su historial
+        cliente.agregarCompraAlHistorial(carritoDeLyzdaiana);
+        cliente.mostrarHistorialDeCompra();
 
-        try {
-            pedido.setEstado("Pago iniciado");
-            ejecutarProcesoDePago(metodoDePago, totalAPagar);
-            
-            // Si el pago es exitoso, actualizamos el estado y notificamos
-            pedido.setEstado("Pagado y procesando");
-            
-            cliente.agregarCompraAlHistorial(carrito); // Guardamos la compra
-            pedido.setEstado("Enviado");
-            
-        } catch (PagoFallidoException e) {
-            System.out.println(" ERROR DE PAGO: " + e.getMessage());
-            pedido.setEstado("Pago fallido");
-        }
+        // Simulación de una acción de usuario administrador
+        System.out.println("\n--- Acciones del Administrador " + administrador.getNombre() + " ---");
+        administrador.cambiarPrecioProducto(discoSsd, 38.99); // El adminastrador pone el disco SSD en oferta
+        administrador.reponerStock(teclado, 10); // El adminastrador repone stock
 
-        System.out.println("\n Proceso de pago finalizado.\n");
-
-        System.out.println("================================");
-        System.out.println(" --- SIMULACIÓN FINALIZADA --- ");
-        System.out.println("================================");
+        System.out.println("\n--- Estado del Inventario Tras las Acciones del Administrador ---");
+        mostrarInventarioCompleto(inventario);
     }
-
     /**
-     * Método polimórfico que ejecuta el flujo de pago.
-     * Lanza PagoFallidoException si la verificación falla.
+     * Método polimórfico procesa una lista de productos.
+     * @param inventario Una lista que puede contener cualquier tipo de Producto.
      */
-    public static void ejecutarProcesoDePago(ProcesoPago metodoDePago, double monto) throws PagoFallidoException {
-        metodoDePago.iniciarPago(monto);
-        // La excepción se lanza dentro de verificarPago si falla
-        if (metodoDePago.verificarPago()) {
-            metodoDePago.confirmarPago();
+    public static void mostrarInventarioCompleto(List<Producto> inventario) {
+        System.out.println("\n =================================");
+        System.out.println("--- Estado Actual del Inventario ---");
+        System.out.println("\n =================================");
+        for (Producto producto : inventario) {
+            producto.mostrarDetalle(); // ¡Polimorfismo: se llama el método correcto!
+            System.out.println("--------------------------------");
         }
+    }
+    /**
+     * Método para probar los conceptos de Abstracción y Encapsulamiento con Validación.
+     */
+    public static void demostrarAbstraccionYValidacion(Cliente cliente, Producto producto) {
+        System.out.println("--- Generación de Abstración ---");
+        // La siguiente línea daría un error de compilación, lo cual es correcto,
+        // porque 'Producto' es una clase abstracta y no puede ser instanciada.
+        // Producto productoGenerico = new Producto(0, "Genérico", "", 0, 0);
+        System.out.println(" Verificando: No se pueden crear instancias de 'Producto' directamente.");
+
+        System.out.println("\n--- Demostrando Encapsulamiento con Validación ---");
+        // Intentar relacionar un precio negativo a un producto
+        System.out.println("Precio original del producto: $" + producto.getPrecio());
+        producto.setPrecio(-5.00); // Esto debería fallar y mostrar un error gracias a la validación en el setter.
+        System.out.println("Precio del producto después del intento de cambio inválido: $" + producto.getPrecio());
+        
+        // Intentar relacionar un email inválido a un cliente
+        System.out.println("\nEmail original del cliente: " + cliente.getCorreoElectronico());
+        cliente.setCorreoElectronico("usuario-sin-arroba"); // Esto también debería fallar.
+        System.out.println("Email del cliente después del intento de cambio inválido: " + cliente.getCorreoElectronico());
     }
 }
-
