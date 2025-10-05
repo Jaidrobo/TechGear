@@ -24,10 +24,15 @@ El proyecto contempla un conjunto de tecnologías y herramientas que garantizan 
 La implementación de las clases **“Producto, Usuario y CarritoDeCompra”** es clave para el correcto funcionamiento de la e-commerce, ya que encapsulan la información de los artículos, los compradores y la gestión de los productos seleccionados respectivamente, formando la base de la lógica de **"TechGear”**, mejorando la experiencia del cliente.
 
 ![Test de Producto](assets/Producto1.png)
+
 [Test de Producto](assets/Producto2.png)
+
 [Test de Producto](assets/Usuario1.png)
+
 [Test de Producto](assets/Usuario2.png)
+
 [Test de Producto](assets/Carrito1.png)
+
 [Test de Producto](assets/Carrito2.png)
 
 
