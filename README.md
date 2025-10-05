@@ -10,17 +10,25 @@ En ese sentido, la propuesta del presente proyecto se centra en el diseño arqui
 
 El proyecto contempla un conjunto de tecnologías y herramientas que garantizan su funcionalidad, escalabilidad y seguridad.
 
-**BackEnd:** Java, Spring Boot
+**BackEnd:** 
+- _Java (Lenguaje)_ 
 
-**FrontEnd:** HTML5, CSS3, Tailwind CSS, 
+- _JDK/JRE 24 (Máquina Virtual de Java)_
+
+- _JUnit 5 (Jupiter) Framework de pruebas unitarias_
+ 
 
 ### _=== BackEnd ===_
 
 ## Clases
 La implementación de las clases **“Producto, Usuario y CarritoDeCompra”** es clave para el correcto funcionamiento de la e-commerce, ya que encapsulan la información de los artículos, los compradores y la gestión de los productos seleccionados respectivamente, formando la base de la lógica de **"TechGear”**, mejorando la experiencia del cliente.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+![Screenshot de la clase Producto](docs/images/Producto1.png)
+![Screenshot de la clase Producto](docs/images/Producto2.png)
+![Screenshot de la clase Usuario](docs/images/Usuario1.png)
+![Screenshot de la clase Usuario](docs/images/Usuario2.png)
+![Screenshot de la clase CarritoDeCompra](docs/images/Carrito1.png)
+![Screenshot de la clase CarritoDeCompra](docs/images/Carrito2.png)
 
 ### _Extensión de Funcionalidades mediante Herencia_
 Permite una gestión organizada, reutilización de código y una extensión flexible del sistema a medida que la e-commerce crece, optimizando la forma en que los “productos, clientes y el proceso de compra se manejan de forma estructurada y modular”.
@@ -42,6 +50,11 @@ Permiten definir qué deben hacer las clases (interfaces) o qué pueden heredar 
 
 ## Maqueta de Plataforma eCommerce - TechGear
 Contiene la maqueta inicial de la página web para la plataforma de eCommerce **TechGear** donde el uso de tecnologías para web modernas como HTML5, CSS3 y Tailwind CSS permite crear una interfaz de usuario atractiva, interactiva y responsiva.
+
+El proyecto contempla un conjunto de tecnologías y herramientas que garantizan su funcionalidad, escalabilidad y seguridad.
+
+**FrontEnd:** HTML5, CSS3, Tailwind CSS,
+
 
 ### Estructura de Archivos
 /
