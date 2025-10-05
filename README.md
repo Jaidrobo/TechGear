@@ -162,33 +162,58 @@ Las pruebas unitarias validan que cada "unidad" de código (cada método) funcio
 ![Test Pruebas JUnit](assets/Test4.png)
 
 
+## Análisis del Proyecto
+_"Desafíos, Aciertos y Mejoras"_
 
-### _=== FrontEnd ===_
+**Desafíos Afrontados y Soluciones Implementadas**
 
-## Maqueta de Plataforma eCommerce - TechGear
-Contiene la maqueta inicial de la página web para la plataforma de eCommerce **TechGear** donde el uso de tecnologías para web modernas como HTML5, CSS3 y Tailwind CSS permite crear una interfaz de usuario atractiva, interactiva y responsiva.
+_Modelar el Stock "Infinito" de Productos Digitales_
 
-El proyecto contempla un conjunto de tecnologías y herramientas que garantizan su funcionalidad, escalabilidad y seguridad.
+- Se utilizó Integer.MAX_VALUE como un valor centinela para simular un stock casi infinito y se sobrescribió _(@Override)_ el método "setStock()" en ProductoDigital para que no tuviera efecto, protegiendo así la lógica de negocio.
 
-**FrontEnd:** HTML5, CSS3, Tailwind CSS,
+_Hacer el Código Testeable (Testing a PagoTarjeta)_
+
+- La implementación inicial de "verificarPago()" usaba Math.random(), lo que hacía dificil escribir una prueba predecible.
+
+- Por ello se refactorizó la clase "**PagoTarjeta**" aplicando Inyección de Dependencias a través de un nuevo constructor _(new PagoTarjeta(boolean simularFallo))_. Esto permitió a las pruebas unitarias controlar el comportamiento de la clase y verificar de forma fiable tanto el caso de éxito como el de fallo.
+
+_Configuración del Entorno de Pruebas_
+
+- El error "The import org.junit cannot be resolved" indicó que las librerías de JUnit no estaban correctamente vinculadas al classpath del proyecto. Lo cual, se solucionó utilizando las herramientas integradas de VS Code _("Quick Fix")_ para añadir automáticamente la librería de **JUnit 5** al classpath del proyecto, evidenciando la importancia de la correcta configuración del IDE.
+
+### Aciertos del Diseño Arquitectónico
+
+_Flexibilidad a través de los Patrones de Diseño:_
+
+- Factory, desacopló la creación de objetos de su uso.
+- Observer, permitió un sistema de notificaciones extensible sin acoplar el EstadoPedido a los notificadores.
+- Singleton, garantizó un control centralizado y único de la configuración.
 
 
-### Estructura de Archivos
-/
-|-- index.html      # Archivo principal de la página
-|-- css/
-|   |-- styles.css  # Estilos personalizados
-|-- js/
-|   |-- script.js   # Lógica de JavaScript
+### Desaciertos y Mejoras Futuras
+
+- Complejidad de la Validación,_(se requiere implementar una librería de validación para gestionar reglas de negocio complejas de forma declarativa.)_
+
+- Gestión de Dependencias Manua _(Las librerías (como JUnit) se gestionaron a través del IDE.)_
 
 
-## Capturas de Pantalla
-A continuación, se muestran vistas previas de la página en diferentes dispositivos.
+##  Cómo Ejecutar el Proyecto
+Para compilar y ejecutar la simulación principal, sigue estos pasos:
 
-### Vista de Escritorio (Desktop)
-_Captura de pantalla de la vista de escritorio._
-![Vista de Escritorio](ruta/a/tu/imagen_desktop.png)
+- _Clonar el Repositorio o Descarga el código_ 
 
-### Vista Móvil (Mobile)
-_Captura de pantalla de la vista móvil._
-![Vista Móvil](ruta/a/tu/imagen_mobile.png)
+- _Abrirlo en el Editor de Código_
+
+   Carpetas del proyecto
+   Asegúrate de tener instalado el "Extension Pack for Java" de Microsoft".
+
+- _Ejecutar la Simulación Principal_
+
+   Navega en el explorador de archivos hasta la clase principal: Store.java.
+   Ejecuta el código y la salida de la simulación se mostrará en la Terminal integrada del editor de código.
+
+- _Ejecutar las Pruebas Unitarias_
+
+   Ir a (Testing 🧪) para abrir el Test Explorer.
+   Clic en el botón de "Play" ▶️ para ejecutar las pruebas del proyecto.
+   Los resultados (✅ / ❌) se mostrarán en este panel.
