@@ -204,16 +204,20 @@ Para compilar y ejecutar la simulación principal, sigue estos pasos:
 
 - _Abrirlo en el Editor de Código_
 
-   Carpetas del proyecto
-   Asegúrate de tener instalado el "Extension Pack for Java" de Microsoft".
+     Carpetas del proyecto
+
+     Asegúrate de tener instalado el "Extension Pack for Java" de Microsoft".
 
 - _Ejecutar la Simulación Principal_
 
-   Navega en el explorador de archivos hasta la clase principal: Store.java.
-   Ejecuta el código y la salida de la simulación se mostrará en la Terminal integrada del editor de código.
+    Navega en el explorador de archivos hasta la clase principal: Store.java.
+
+    Ejecuta el código y la salida de la simulación se mostrará en la Terminal integrada del editor de código.
 
 - _Ejecutar las Pruebas Unitarias_
 
-   Ir a (Testing 🧪) para abrir el Test Explorer.
-   Clic en el botón de "Play" ▶️ para ejecutar las pruebas del proyecto.
-   Los resultados (✅ / ❌) se mostrarán en este panel.
+    Ir a (Testing 🧪) para abrir el Test Explorer.
+
+    Clic en el botón de "Play" ▶️ para ejecutar las pruebas del proyecto.
+
+    Los resultados (✅ / ❌) se mostrarán en este panel.
