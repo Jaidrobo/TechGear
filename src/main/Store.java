@@ -8,6 +8,7 @@ import producto.ProductoDigital;
 import producto.ProductoFisico;
 import usuario.Administrador;
 import usuario.Cliente;
+import inventario.InventarioInsuficienteException;
 
 /**
  * Clase principal que simula el funcionamiento de la e-commerce.
@@ -44,9 +45,13 @@ public class Store {
         CarritoDeCompras carritoDeLyzdaiana = new CarritoDeCompras();
         
         // Demostración de Sobrecarga de Métodos 
-        carritoDeLyzdaiana.agregarProducto(discoSsd); // Añadir por objeto (la original)
-        carritoDeLyzdaiana.agregarProducto(301, inventario); // Añadir por ID, buscando en el inventario
-        carritoDeLyzdaiana.agregarProducto(teclado, 2); // Añadir por objeto y cantidad 
+        try {
+            carritoDeLyzdaiana.agregarProducto(discoSsd); // Añadir por objeto (la original)
+            carritoDeLyzdaiana.agregarProducto(301, inventario); // Añadir por ID, buscando en el inventario
+            carritoDeLyzdaiana.agregarProducto(teclado, 2); // Añadir por objeto y cantidad 
+        } catch (InventarioInsuficienteException e) {
+            System.out.println("Error al agregar producto al carrito: " + e.getMessage());
+        }
 
         // Muestra el resultado final del carrito
         System.out.println("\n Resumen del carrito antes de finalizar la compra: ");
