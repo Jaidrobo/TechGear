@@ -25,18 +25,15 @@ La implementación de las clases **“Producto, Usuario y CarritoDeCompra”** e
 
 ![Test de Producto](assets/Producto1.png)
 
-[Test de Producto](assets/Producto2.png)
+![Test de Producto](assets/Producto2.png)
 
-[Test de Producto](assets/Usuario1.png)
+![Test de Producto](assets/Usuario1.png)
 
-[Test de Producto](assets/Usuario2.png)
+![Test de Producto](assets/Usuario2.png)
 
-[Test de Producto](assets/Carrito1.png)
+![Test de Producto](assets/Carrito1.png)
 
-[Test de Producto](assets/Carrito2.png)
-
-
-![Screenshot de la clase Producto](docs/images/Producto1.png)
+![Test de Producto](assets/Carrito2.png)
 
 
 ### _Extensión de Funcionalidades mediante Herencia_
